@@ -81,15 +81,5 @@ export default class LinkedList {
         const {value} = newTail; 
         delete this[value];
         return this;
-
-        // const newTail = this.tail.value;
-        // console.log(newTail);
-        // const newTailNode = this[newTail];
-        // const newPreTail = newTailNode.value;
-        // newPreTail.next = 'tail';
-        // newTailNode.next = null;
-        // delete this.tail;
-        // this.tail = newTailNode;
-        // return this;
     }
 }
