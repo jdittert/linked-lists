@@ -15,7 +15,7 @@ export default class LinkedList {
         }
         else {
             const temp = this.tail.value;
-            this.tail.next = node.value;
+            this.tail.next = 'tail';
             const tempNode = {[temp]:this.tail};
             Object.assign(this, tempNode);            
             delete this.tail;
@@ -30,8 +30,33 @@ export default class LinkedList {
         else {
             const temp = this.head.value;
             node.next = temp;
-            this.head = this[temp];
+            this[temp] = this.head;
             this.head = node;
         }
+    }
+
+    size() {
+        const keys = Object.keys(this);
+        return keys.length;
+    }
+
+    listHead() {
+        return this.head;
+    }
+
+    listTail() {
+        return this.tail;
+    }
+
+    at(index) {
+        if (index === 0) return this.head;
+        if (index > Object.keys(this).length - 1) return undefined;
+        let temp = this.head.next;
+        let i = 0;
+        while (i < (index - 1)) {
+            temp = this[temp].next;
+            i++;
+        }
+        return this[temp];                
     }
 }
