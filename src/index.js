@@ -21,3 +21,11 @@ console.log('index 5:', list.at(5));
 
 console.log(list.pop(this));
 
+console.log('contains "a":', list.contains('a'));
+console.log('contains "dog":', list.contains('dog'));
+
+console.log('index of "upon":', list.find('upon'));
+console.log('index of "dog":', list.find('dog'));
+console.log('index of "Once":', list.find('Once'));
+
+console.log('to string:', list.toString());

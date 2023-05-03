@@ -82,4 +82,38 @@ export default class LinkedList {
         delete this[value];
         return this;
     }
+
+    contains(value) {
+        const values = [];
+        const entries = Object.entries(this);
+        entries.forEach(element => {
+            values.push(element[1].value);            
+        });
+        
+        return values.includes(value);
+    }
+
+    find(value) {
+        let i;
+        let node = this.head;
+        for (i = 0; i < Object.keys(this).length - 1; i++) {
+            if (node.value === value) return i; 
+            const temp = node.next;
+            node = this[temp]
+        }
+        return null;
+    }
+
+    toString() {
+        let i;
+        let node = this.head;
+        let string = '';
+        for (i = 0; i < Object.keys(this).length; i++) {
+            string = string.concat(`( ${node.value} )`, ' ', '->', ' ');
+            const temp = node.next;
+            node = this[temp];
+        }
+        string = string.concat('null');
+        return string; 
+    }
 }
