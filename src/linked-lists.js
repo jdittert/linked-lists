@@ -1,3 +1,5 @@
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable guard-for-in */
 import Node from "./node";
 
 export default class LinkedList {
@@ -58,5 +60,36 @@ export default class LinkedList {
             i++;
         }
         return this[temp];                
+    }
+
+    pop() {
+        let newTail;
+        let preTail;
+        for (const node in this) {
+            if (this[node].next === 'tail') {
+                newTail = this[node];
+            };            
+        }
+        for (const node in this) {
+            if (this[node].next === newTail.value) {
+                preTail = this[node];
+            }
+        }
+        preTail.next = 'tail';
+        newTail.next = null;
+        this.tail = newTail;
+        const {value} = newTail; 
+        delete this[value];
+        return this;
+
+        // const newTail = this.tail.value;
+        // console.log(newTail);
+        // const newTailNode = this[newTail];
+        // const newPreTail = newTailNode.value;
+        // newPreTail.next = 'tail';
+        // newTailNode.next = null;
+        // delete this.tail;
+        // this.tail = newTailNode;
+        // return this;
     }
 }

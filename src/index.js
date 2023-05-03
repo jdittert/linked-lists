@@ -19,3 +19,5 @@ console.log('index 2:', list.at(2));
 console.log('index 3:', list.at(3));
 console.log('index 5:', list.at(5));
 
+console.log(list.pop(this));
+
